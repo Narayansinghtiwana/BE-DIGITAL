@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Be Digital — Narayan Singh Tiwana</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="#">Be Digital</a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Grow your business<br><span class="accent">with smart digital solutions</span></h1>
+          <p>Website design • Social media • Marketing strategy • Training</p>
+          <p><a class="btn-primary" href="#contact">Get in touch</a></p>
+        </div>
+        <div class="hero-image">
+          <div class="placeholder-img">Your Image Here</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="container">
+        <h2>About</h2>
+        <p>I’m Narayan — I help businesses go digital with affordable websites, marketing strategy and hands-on training.</p>
+      </div>
+    </section>
+
+    <section id="services" class="section services">
+      <div class="container">
+        <h2>Services</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Website design</h3>
+            <p>Responsive sites that work on phones and desktop.</p>
+          </div>
+          <div class="card">
+            <h3>Social media</h3>
+            <p>Content calendars, post templates and growth guidance.</p>
+          </div>
+          <div class="card">
+            <h3>Training</h3>
+            <p>1-to-1 training so you can manage your digital tools.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section portfolio">
+      <div class="container">
+        <h2>Portfolio</h2>
+        <div class="grid-3">
+          <div class="work">Project 1</div>
+          <div class="work">Project 2</div>
+          <div class="work">Project 3</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:naryansinghuk2025@gmail.com">naryansinghuk2025@gmail.com</a></p>
+
+        <form class="contact-form" onsubmit="submitForm(event)">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <textarea name="message" placeholder="Message" rows="4" required></textarea>
+          <button type="submit" class="btn-secondary">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Be Digital — Made by Narayan</p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
