@@ -2,97 +2,659 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Be Digital — Narayan Singh Tiwana</title>
-  <link rel="stylesheet" href="assets/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Be Digital | Your Partner in Success</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --accent:#0ea5e9;   /* blue */
+      --accent-dark:#0284c7;
+      --card:#f9fafb;
+      --border:#e5e7eb;
+      --section-pad:64px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      font-family:"Poppins",system-ui, -apple-system, BlinkMacSystemFont;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+
+    a{color:inherit;text-decoration:none;}
+
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    header{
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:#ffffffee;
+      backdrop-filter:blur(10px);
+    }
+
+    .nav-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 0;
+    }
+
+    .brand{
+      font-weight:700;
+      font-size:20px;
+      letter-spacing:0.04em;
+    }
+
+    nav{
+      display:flex;
+      gap:20px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    nav a:hover{
+      color:var(--accent);
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:var(--section-pad) 0 40px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding:4px 12px;
+      border-radius:999px;
+      background:#e0f2fe;
+      color:#0369a1;
+      font-size:12px;
+      margin-bottom:14px;
+      font-weight:500;
+    }
+
+    .hero h1{
+      font-size:36px;
+      line-height:1.2;
+      margin-bottom:10px;
+    }
+
+    .hero h1 span{
+      color:var(--accent);
+    }
+
+    .hero-sub{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .cta-row{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 20px;
+      border-radius:999px;
+      background:var(--accent);
+      color:#fff;
+      font-size:14px;
+      font-weight:500;
+      border:none;
+      cursor:pointer;
+      box-shadow:0 10px 25px rgba(15,118,192,0.25);
+      transition:background 0.15s, transform 0.1s, box-shadow 0.15s;
+    }
+
+    .btn-primary:hover{
+      background:var(--accent-dark);
+      transform:translateY(-1px);
+      box-shadow:0 14px 30px rgba(15,118,192,0.28);
+    }
+
+    .hero-contact{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .hero-contact strong{
+      color:var(--text);
+    }
+
+    .hero-image{
+      border-radius:24px;
+      background:radial-gradient(circle at top left,#e0f2fe 0,#eff6ff 40%,#ffffff 100%);
+      border:1px solid #dbeafe;
+      padding:26px 26px 18px;
+      position:relative;
+      overflow:hidden;
+      min-height:260px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .hero-image h2{
+      font-size:22px;
+      margin-bottom:6px;
+    }
+
+    .hero-image p{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .hero-price{
+      font-size:28px;
+      font-weight:700;
+      margin-top:6px;
+      color:var(--accent-dark);
+    }
+
+    .hero-tagline{
+      position:absolute;
+      right:-40px;
+      bottom:-40px;
+      width:180px;
+      height:180px;
+      border-radius:999px;
+      border:14px solid #bae6fd;
+      background:#e0f2fe;
+      opacity:0.55;
+    }
+
+    /* GENERIC SECTIONS */
+
+    section{
+      padding:var(--section-pad) 0;
+    }
+
+    h2.section-title{
+      font-size:26px;
+      margin-bottom:8px;
+    }
+
+    .section-sub{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:26px;
+    }
+
+    /* SERVICES */
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:20px;
+      border:1px solid var(--border);
+      padding:18px 18px 20px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .card-tag{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      color:#0f766e;
+      background:#ecfdf5;
+      padding:3px 8px;
+      border-radius:999px;
+      align-self:flex-start;
+      font-weight:500;
+    }
+
+    .card-title{
+      font-size:16px;
+      font-weight:600;
+    }
+
+    .card-desc{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .card-price{
+      margin-top:8px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .card-price strong{
+      font-size:18px;
+      color:var(--text);
+      margin-right:4px;
+    }
+
+    .card-cta{
+      margin-top:auto;
+    }
+
+    .btn-outline{
+      padding:8px 16px;
+      border-radius:999px;
+      border:1px solid var(--accent);
+      background:#fff;
+      font-size:13px;
+      font-weight:500;
+      cursor:pointer;
+    }
+
+    .btn-outline:hover{
+      background:#eff6ff;
+    }
+
+    /* OUR OFFERINGS */
+
+    .offerings-grid{
+      margin-top:10px;
+      border-radius:20px;
+      border:1px dashed #d4d4d8;
+      padding:16px;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .off-box{
+      border-radius:12px;
+      background:#f9fafb;
+      padding:10px 12px;
+    }
+
+    /* VISION */
+
+    .vision-grid{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:32px;
+      align-items:center;
+    }
+
+    .vision-img{
+      border-radius:24px;
+      background:radial-gradient(circle at top,#f97316 0,#fed7aa 40%,#fff7ed 80%);
+      min-height:240px;
+    }
+
+    .vision-text h3{
+      font-size:20px;
+      margin-bottom:6px;
+    }
+
+    .vision-text p{
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    /* FOLLOW US / FOOTER */
+
+    .follow{
+      background:#020617;
+      color:#e5e7eb;
+    }
+
+    .follow-inner{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:40px;
+      align-items:flex-start;
+    }
+
+    .follow-brand{
+      font-size:22px;
+      font-weight:600;
+      margin-bottom:6px;
+    }
+
+    .follow-sub{
+      color:#9ca3af;
+      font-size:13px;
+      margin-bottom:18px;
+    }
+
+    .newsletter-label{
+      font-size:13px;
+      margin-bottom:6px;
+    }
+
+    .newsletter-input{
+      width:100%;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid #4b5563;
+      background:#020617;
+      color:#e5e7eb;
+      font-size:13px;
+      margin-bottom:8px;
+    }
+
+    .newsletter-input::placeholder{
+      color:#6b7280;
+    }
+
+    .checkbox-row{
+      display:flex;
+      align-items:flex-start;
+      gap:8px;
+      font-size:12px;
+      color:#9ca3af;
+      margin-bottom:10px;
+    }
+
+    .checkbox-row input{
+      margin-top:2px;
+    }
+
+    .btn-news{
+      padding:8px 18px;
+      border-radius:999px;
+      border:none;
+      background:#f97316;
+      color:#0b1120;
+      font-weight:600;
+      font-size:13px;
+      cursor:pointer;
+    }
+
+    .follow-info{
+      font-size:13px;
+      color:#e5e7eb;
+      margin-top:18px;
+    }
+
+    .follow-info a{
+      color:#e5e7eb;
+      text-decoration:underline;
+    }
+
+    .social-row{
+      display:flex;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .social-pill{
+      width:28px;
+      height:28px;
+      border-radius:999px;
+      border:1px solid #4b5563;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      color:#e5e7eb;
+    }
+
+    footer{
+      background:#020617;
+      color:#6b7280;
+      border-top:1px solid #111827;
+      font-size:11px;
+      text-align:center;
+      padding:14px 10px 18px;
+    }
+
+    footer a{
+      color:#9ca3af;
+      text-decoration:underline;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width:900px){
+      .hero-grid,
+      .vision-grid,
+      .follow-inner{
+        grid-template-columns:1fr;
+      }
+
+      nav{display:none;}
+      .hero{
+        padding-top:32px;
+      }
+
+      section{
+        padding:40px 0;
+      }
+    }
+
+    @media (max-width:640px){
+      .cards{grid-template-columns:1fr;}
+      .offerings-grid{grid-template-columns:1fr;}
+      .hero h1{font-size:30px;}
+    }
+
+  </style>
 </head>
 <body>
-  <header class="site-header">
+  <header>
     <div class="container nav-row">
-      <a class="brand" href="#">Be Digital</a>
-      <nav class="nav">
-        <a href="#about">About</a>
+      <div class="brand">Be Digital</div>
+      <nav>
+        <a href="#top">Home</a>
         <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
+        <a href="#offerings">Our Offerings</a>
+        <a href="#vision">Vision</a>
+        <a href="#follow">Follow Us</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="top">
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1>Grow your business<br><span class="accent">with smart digital solutions</span></h1>
-          <p>Website design • Social media • Marketing strategy • Training</p>
-          <p><a class="btn-primary" href="#contact">Get in touch</a></p>
+        <div>
+          <div class="pill">Your Partner in Success</div>
+          <h1>
+            Affordable Website Setup<br>
+            <span>for just £499</span>
+          </h1>
+          <p class="hero-sub">
+            Website creation • Online presence • Digital visibility
+          </p>
+          <div class="cta-row">
+            <button class="btn-primary" onclick="scrollToSection('services')">
+              Get Started
+            </button>
+            <span style="font-size:13px;color:var(--muted);">
+              Complete website package at a competitive price.
+            </span>
+          </div>
+          <p class="hero-contact">
+            <strong>Contact:</strong> 0788906865 · narayansinghitiwana@gmail.com
+          </p>
         </div>
         <div class="hero-image">
-          <div class="placeholder-img">Your Image Here</div>
+          <div>
+            <h2>Full Website Setup</h2>
+            <p>From idea to launch — we design and build your online presence.</p>
+            <div class="hero-price">£499</div>
+          </div>
+          <p style="font-size:12px;color:var(--muted);margin-top:12px;">
+            Includes design, setup, and launch support so you can focus on your business.
+          </p>
+          <div class="hero-tagline"></div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section about">
+    <!-- SERVICES -->
+    <section id="services">
       <div class="container">
-        <h2>About</h2>
-        <p>I’m Narayan — I help businesses go digital with affordable websites, marketing strategy and hands-on training.</p>
-      </div>
-    </section>
+        <h2 class="section-title">Services</h2>
+        <p class="section-sub">Service Information</p>
 
-    <section id="services" class="section services">
-      <div class="container">
-        <h2>Services</h2>
         <div class="cards">
-          <div class="card">
-            <h3>Website design</h3>
-            <p>Responsive sites that work on phones and desktop.</p>
-          </div>
-          <div class="card">
-            <h3>Social media</h3>
-            <p>Content calendars, post templates and growth guidance.</p>
-          </div>
-          <div class="card">
-            <h3>Training</h3>
-            <p>1-to-1 training so you can manage your digital tools.</p>
-          </div>
+          <article class="card">
+            <div class="card-tag">Popular</div>
+            <div class="card-title">Website Management Assistant</div>
+            <p class="card-desc">
+              Ongoing help with updates, content changes, and keeping your site running smoothly.
+            </p>
+            <p class="card-price">
+              <strong>£200</strong> one-time setup
+            </p>
+            <div class="card-cta">
+              <button class="btn-outline">View Course</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Boost</div>
+            <div class="card-title">Boost up</div>
+            <p class="card-desc">
+              Improve your existing site with design tweaks, better structure, and fresh content.
+            </p>
+            <p class="card-price">
+              <strong>£150</strong> package
+            </p>
+            <div class="card-cta">
+              <button class="btn-outline">Book Now</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Design</div>
+            <div class="card-title">Website Design</div>
+            <p class="card-desc">
+              Custom-made website tailored to your goals, audience, and brand identity.
+            </p>
+            <p class="card-price">
+              <strong>£300</strong> from
+            </p>
+            <div class="card-cta">
+              <button class="btn-outline">Book Now</button>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="portfolio" class="section portfolio">
+    <!-- OUR OFFERINGS -->
+    <section id="offerings">
       <div class="container">
-        <h2>Portfolio</h2>
-        <div class="grid-3">
-          <div class="work">Project 1</div>
-          <div class="work">Project 2</div>
-          <div class="work">Project 3</div>
+        <h2 class="section-title">Our Offerings</h2>
+        <p class="section-sub">
+          We don’t have any products to show right now, but services are available on request.
+        </p>
+
+        <div class="offerings-grid">
+          <div class="off-box">We don’t have any products to show right now.</div>
+          <div class="off-box">We don’t have any products to show right now.</div>
+          <div class="off-box">We don’t have any products to show right now.</div>
+          <div class="off-box">We don’t have any products to show right now.</div>
+          <div class="off-box">We don’t have any products to show right now.</div>
+          <div class="off-box">We don’t have any products to show right now.</div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:naryansinghuk2025@gmail.com">naryansinghuk2025@gmail.com</a></p>
+    <!-- VISION -->
+    <section id="vision">
+      <div class="container vision-grid">
+        <div class="vision-img"></div>
+        <div class="vision-text">
+          <h2 class="section-title">Vision</h2>
+          <h3>Our Mission</h3>
+          <p>
+            At Be Digital, we are committed to empowering businesses and individuals by enhancing
+            their online presence. Specializing in website creation, we help increase visibility and
+            engagement through tailored digital solutions at a competitive price. With a complete
+            setup for only £499, we turn aspirations into reality, ensuring that every client
+            achieves their unique digital goals.
+          </p>
+        </div>
+      </div>
+    </section>
 
-        <form class="contact-form" onsubmit="submitForm(event)">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Your email" required>
-          <textarea name="message" placeholder="Message" rows="4" required></textarea>
-          <button type="submit" class="btn-secondary">Send message</button>
-        </form>
+    <!-- FOLLOW US -->
+    <section id="follow" class="follow">
+      <div class="container follow-inner">
+        <div>
+          <div class="follow-brand">Be Digital</div>
+          <div class="follow-sub">Stay Connected</div>
+
+          <label class="newsletter-label" for="email">Email*</label>
+          <input id="email" class="newsletter-input" type="email" placeholder="Enter your email">
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="sub-check" checked>
+            <label for="sub-check">Yes, subscribe me to your newsletter.*</label>
+          </div>
+
+          <button class="btn-news" onclick="fakeSubscribe()">Subscribe</button>
+
+          <div class="social-row">
+            <div class="social-pill">f</div>
+            <div class="social-pill">in</div>
+            <div class="social-pill">X</div>
+            <div class="social-pill">▶</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="follow-info">
+            <p>Phone: 0788906865</p>
+            <p>Email: <a href="mailto:narayansinghitiwana@gmail.com">narayansinghitiwana@gmail.com</a></p>
+            <p style="margin-top:10px;">
+              <a href="#">Privacy Policy</a> ·
+              <a href="#">Accessibility Statement</a> ·
+              <a href="#">Terms &amp; Conditions</a>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Be Digital — Made by Narayan</p>
-    </div>
+  <footer>
+    © 2035 by Be Digital. Recreated for GitHub Pages.
   </footer>
 
-  <script src="assets/script.js"></script>
+  <script>
+    function scrollToSection(id){
+      document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
+    }
+    function fakeSubscribe(){
+      alert("Thanks for subscribing! (demo only)");
+    }
+  </script>
 </body>
 </html>
